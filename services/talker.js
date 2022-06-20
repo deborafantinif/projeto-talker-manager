@@ -40,10 +40,21 @@ const updateTalker = (name, id, talk, age) => {
   const { message } = getTalkers();
   const index = message.findIndex((talker) => talker.id === id);
   message[index] = { name, id, talk, age };
-  console.log(message);
   fs.writeFileSync(filePath, JSON.stringify(message));
 
   return { code: 200, message: { name, id, talk, age } };
+};
+
+const deleteTalker = (id) => {
+  const { message } = getTalkers();
+
+  const index = message.findIndex((talker) => talker.id === id);
+
+  message.splice(index, 1);
+
+  fs.writeFileSync(filePath, JSON.stringify(message));
+
+  return { code: 204, message: '' };
 };
 
 module.exports = {
@@ -51,4 +62,5 @@ module.exports = {
   getTalkerById,
   createTalker,
   updateTalker,
+  deleteTalker,
 };

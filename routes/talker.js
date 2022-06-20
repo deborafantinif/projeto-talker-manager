@@ -13,4 +13,6 @@ router.post('/', authentication, validateTalker, controller.createTalker);
 
 router.put('/:id', authentication, validateTalker, controller.updateTalker);
 
+router.delete('/:id', authentication, controller.deleteTalker);
+
 module.exports = router;

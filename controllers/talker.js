@@ -30,9 +30,18 @@ const updateTalker = (req, res) => {
   res.status(code).json(message);
 };
 
+const deleteTalker = (req, res) => {
+  const { id } = req.params;
+
+  const { code, message } = service.deleteTalker(Number(id));
+
+  return res.status(code).json(message);
+};
+
 module.exports = {
   getTalkers,
   getTalkerById,
   createTalker,
   updateTalker,
+  deleteTalker,
 };
