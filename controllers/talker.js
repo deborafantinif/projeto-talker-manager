@@ -21,8 +21,18 @@ const createTalker = (req, res) => {
   return res.status(code).json(message);
 };
 
+const updateTalker = (req, res) => {
+  const { id } = req.params;
+  const { name, talk, age } = req.body;
+
+  const { code, message } = service.updateTalker(name, Number(id), talk, age);
+
+  res.status(code).json(message);
+};
+
 module.exports = {
   getTalkers,
   getTalkerById,
   createTalker,
+  updateTalker,
 };

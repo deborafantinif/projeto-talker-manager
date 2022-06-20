@@ -11,4 +11,6 @@ router.get('/:id', controller.getTalkerById);
 
 router.post('/', authentication, validateTalker, controller.createTalker);
 
+router.put('/:id', authentication, validateTalker, controller.updateTalker);
+
 module.exports = router;
