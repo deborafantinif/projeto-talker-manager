@@ -29,7 +29,7 @@ const validationPassword = (password, res) => {
   }
 };
 
-const validation = (req, res, next) => {
+const validationLogin = (req, res, next) => {
   const { email, password } = req.body;
 
   validationEmail(email, res);
@@ -38,4 +38,4 @@ const validation = (req, res, next) => {
   next();
 };
 
-module.exports = validation;
+module.exports = validationLogin;

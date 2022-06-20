@@ -19,7 +19,25 @@ const getTalkerById = (id) => {
   return { code: 200, message: talker };
 };
 
+const createTalker = (name, age, talk) => {
+  const { message } = getTalkers();
+  const lastId = message[message.length - 1].id;
+  const newTalker = {
+    name,
+    age,
+    id: lastId + 1,
+    talk,
+  };
+
+  message.push(newTalker);
+  console.log(message);
+  fs.writeFileSync(filePath, JSON.stringify(message));
+
+  return { code: 201, message: newTalker };
+};
+
 module.exports = {
   getTalkers,
   getTalkerById,
+  createTalker,
 };

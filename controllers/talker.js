@@ -13,7 +13,16 @@ const getTalkerById = (req, res) => {
   return res.status(code).json(message);
 };
 
+const createTalker = (req, res) => {
+  const { name, age, talk } = req.body;
+
+  const { code, message } = service.createTalker(name, age, talk);
+
+  return res.status(code).json(message);
+};
+
 module.exports = {
   getTalkers,
   getTalkerById,
+  createTalker,
 };
