@@ -9,7 +9,7 @@ const getTalkers = (_req, res) => {
 const getTalkerById = (req, res) => {
   const { id } = req.params;
 
-  const { code, message } = service.getTalkerById(id);
+  const { code, message } = service.getTalkerById(Number(id));
   return res.status(code).json(message);
 };
 
