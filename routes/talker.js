@@ -7,6 +7,8 @@ const router = express.Router();
 
 router.get('/', controller.getTalkers);
 
+router.get('/search', authentication, controller.searchTalker);
+
 router.get('/:id', controller.getTalkerById);
 
 router.post('/', authentication, validateTalker, controller.createTalker);

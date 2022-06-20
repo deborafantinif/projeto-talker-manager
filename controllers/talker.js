@@ -38,10 +38,19 @@ const deleteTalker = (req, res) => {
   return res.status(code).json(message);
 };
 
+const searchTalker = (req, res) => {
+  const { q } = req.query;
+
+  const { code, message } = service.searchTalker(q);
+
+  res.status(code).json(message);
+};
+
 module.exports = {
   getTalkers,
   getTalkerById,
   createTalker,
   updateTalker,
   deleteTalker,
+  searchTalker,
 };

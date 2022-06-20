@@ -57,10 +57,20 @@ const deleteTalker = (id) => {
   return { code: 204, message: '' };
 };
 
+const searchTalker = (query) => {
+  const { message } = getTalkers();
+  const talkersSearch = message.filter(({ name }) => name.includes(query));
+
+  if (talkersSearch.length <= 0) return { code: 200, message };
+
+  return { code: 200, message: talkersSearch };
+};
+
 module.exports = {
   getTalkers,
   getTalkerById,
   createTalker,
   updateTalker,
   deleteTalker,
+  searchTalker,
 };
